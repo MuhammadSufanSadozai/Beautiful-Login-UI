@@ -1,45 +1,61 @@
-import 'package:beatiful_ui/registerScreen.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return 
-       Container(
+    return Container(
+      
         decoration: BoxDecoration(
         image: DecorationImage(image: 
-           AssetImage('images/login.png'),fit: BoxFit.cover),  
+           AssetImage('images/register.png'),fit: BoxFit.cover),  
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
+              IconButton(
+      onPressed: () {
+        // Navigate back to the previous screen
+        Navigator.pop(context);
+      },
+      icon: Icon(Icons.arrow_back,color: Colors.white,),
+    ),
             Container(
               child: 
               Padding(
-                padding: const EdgeInsets.only(left: 35,top: 100),
-                child: Text('Welcome \nBack ',style:TextStyle(color: Colors.white,fontSize: 33)),
+                padding: const EdgeInsets.only(left: 35,top: 60),
+                child: Text('Create \nAccount ',style:TextStyle(color: Colors.white,fontSize: 33)),
               ),
 
             ),
             Container(
               
              child: Padding(
-               padding: const EdgeInsets.only(top: 300,left: 20,right: 20),
+               padding: const EdgeInsets.only(top: 220,left: 20,right: 20),
                child: Column
                            (
                 children: [
-                  
+                   TextField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey.shade100,
+                      filled: true,
+                      hintText: 'Name',
+                      border: OutlineInputBorder(
+                       borderRadius: BorderRadius.circular(10),
+                       borderSide: BorderSide(color: Colors.white)
+                      )
+                    ),
+                    
+                  ),
+                  SizedBox(height: 20,),
                   TextField(
                     decoration: InputDecoration(
                       fillColor: Colors.grey.shade100,
@@ -47,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       hintText: 'Email',
                       border: OutlineInputBorder(
                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)
                       )
                     ),
                   ),
@@ -59,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       hintText: 'Password',
                       border: OutlineInputBorder(
                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.white)
                       )
                     ),
                   ),
@@ -91,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Sign in',style: TextStyle(color: Colors.black,decoration: TextDecoration.underline,fontSize: 18),),
-                  Text('Forgot password',style: TextStyle(color: Colors.black,decoration: TextDecoration.underline,fontSize: 18),)
+                  
                 ],
               )
                 ],
